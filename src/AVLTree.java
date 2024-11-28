@@ -133,7 +133,23 @@ public class AVLTree {
         return busqueda(node.der, cve);
     }
     // Eliminar un nodo del árbol AVL
+    public boolean contieneNodoAVL(NodoAVL actual, int cve) {
+        if (actual == null) {
+            return false;
+        }
+        if (cve == actual.num) {
+            return true;
+        }
+        return cve < actual.num
+                ? contieneNodoAVL(actual.izq, cve)
+                : contieneNodoAVL(actual.der, cve);
+    }
+
     NodoAVL borrar(NodoAVL raiz, int cve) {
+        if (!contieneNodoAVL(raiz, cve)) {
+            System.out.println("El nodo con clave " + cve + " no existe en el árbol.");
+            return raiz; // Retornar sin realizar cambios si el nodo no existe
+        }
         // Caso base: el árbol está vacío
         if (raiz == null)
             return raiz;
