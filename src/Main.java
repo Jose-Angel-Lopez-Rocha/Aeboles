@@ -17,6 +17,7 @@ public class Main {
             System.out.print("Elige una opción: ");
 
             int mainOption = scanner.nextInt();
+              // Limpiar el buffer después de leer un número
 
             switch (mainOption) {
                 case 1:
@@ -29,6 +30,7 @@ public class Main {
                     // Solicitar el grado t del árbol B
                     System.out.print("Introduce el grado (t) del Árbol B: ");
                     int t = scanner.nextInt();
+                    scanner.nextLine();  // Limpiar el buffer después de leer un número
 
                     // Crear e interactuar con el menú del Árbol B
                     BMenu menuArbolB = new BMenu(t, scanner);
@@ -36,12 +38,12 @@ public class Main {
                     break;
                 case 4:
                     // Aquí se muestra el menú para el árbol n-ario
-                    EnarioMenu arbolEnarioMenu = new EnarioMenu();  // Instanciamos el menú del árbol n-ario
+                    EnarioMenu arbolEnarioMenu = new EnarioMenu(arbolEnario, scanner);  // Instanciamos el menú del árbol n-ario
                     arbolEnarioMenu.mostrarMenu();  // Mostramos el menú del árbol n-ario
                     break;
                 case 5:
                     System.out.println("Saliendo del programa...");
-                    scanner.close();
+                    scanner.close();  // Ahora sí cerramos el scanner
                     return;
                 default:
                     System.out.println("Opción no válida. Intenta de nuevo.");

@@ -1,14 +1,14 @@
 import java.util.Scanner;
 
 public class EnarioMenu {
-    private ArbolEnario arbolEnario;
-    private Scanner scanner;
-    private NodoEnario raiz; // Mover la raíz fuera del método
+     ArbolEnario arbolEnario;
+    Scanner scanner;  // Usamos el scanner pasado desde Main
+    NodoEnario raiz; // Mover la raíz fuera del método
 
     // Constructor
-    public EnarioMenu() {
-        arbolEnario = new ArbolEnario();
-        scanner = new Scanner(System.in);
+    public EnarioMenu(ArbolEnario arbolEnario, Scanner scanner) {
+        this.arbolEnario = arbolEnario;  // Usar el arbolEnario pasado
+        this.scanner = scanner;  // Usar el scanner pasado desde Main
         raiz = null; // Inicializar la raíz
     }
 
@@ -50,7 +50,6 @@ public class EnarioMenu {
 
                 case 3:
                     System.out.println("Saliendo del programa...");
-                    scanner.close();
                     return;  // Sale del programa
 
                 default:
@@ -59,4 +58,3 @@ public class EnarioMenu {
         }
     }
 }
-
